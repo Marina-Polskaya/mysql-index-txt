@@ -1,0 +1,10 @@
+
+-- —оздание индекса:
+
+create index publ_date on posts(publ_date);
+
+
+-- ќбновить записи автора 'test3', опубликованные в период 29.11.18 - 01.12.18. ”становить текст 'New text' в €чейке text:
+
+update posts set text = 'New text' where posts.author = 'test3' and publ_date between'2018-11-29' and '2018-12-01';
+
