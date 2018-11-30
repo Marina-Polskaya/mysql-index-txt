@@ -1,0 +1,28 @@
+
+--  оличество постов у всех пользователей:
+
+select count(posts.author) as cnt from users join posts on users.login = posts.author;
+
+
+
+--  оличество постов у каждого пользовател€:
+
+select users.login, count(posts.author) as cnt from users join posts on posts.author = users.login group by users.login, posts.author;
+
+
+
+--  оличество постов у пользовател€ test3:
+
+
+select count(posts.author) as cnt from users join posts on users.login = posts.author and posts.author = 'test3';
+
+
+
+
+-- ¬ывод постов пользовател€ test3, отсортированных по дате публикации (сначала свежие):
+
+
+create index publ_date on posts(publ_date);
+
+select * from users join posts on users.login = posts.author and posts.author = 'test3' order by publ_date desc;
+
