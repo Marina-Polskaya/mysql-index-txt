@@ -1,0 +1,25 @@
+
+
+-- Создание индекса:
+
+create index publ_date on posts(publ_date);
+
+
+-- Выборка всех записей по дате:
+
+select * from posts order by publ_date; 
+
+
+-- В обратном порядке (сверху последние записи):
+
+select * from posts order by publ_date desc; 
+
+
+-- Выборка всех записей автора test1, отсортированных по дате публикации (сначала свежие записи):
+
+select * from posts where posts.author = 'test1' order by publ_date desc;
+
+
+-- Удаление индекса:
+
+DROP index publ_date on posts;
